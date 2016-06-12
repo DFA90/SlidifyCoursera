@@ -11,7 +11,7 @@ mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
 ---
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 library(dplyr)
 library(tidyr)
 library(ggplot2)
@@ -19,7 +19,7 @@ library(ggplot2)
 
 ## Iris DataSet
 
-Let's get an idea of the iris dataset
+Let's get an idea of the iris dataset. (Just the first lines from a summary...)
 
 ```{r, echo=FALSE}
 iris %>% 
@@ -27,7 +27,8 @@ iris %>%
     group_by(Species, variable) %>% 
     summarise(median = median(value),
               mean = mean(value),
-              sd = sd(value))
+              sd = sd(value)) %>% 
+    head()
 ```
 
 ---
